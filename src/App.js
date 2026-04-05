@@ -7,6 +7,7 @@ import CartProvider from "./store/CartProvider";
 function App() {
 
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const showCartHandler = ()  => {
     setCartIsShown(true)
@@ -16,12 +17,24 @@ function App() {
     setCartIsShown(false)
   }
 
+  const selectRestaurantHandler = (restaurant) => {
+    setSelectedRestaurant(restaurant);
+  }
+
+  const backToRestaurantsHandler = () => {
+    setSelectedRestaurant(null);
+  }
+
   return (
     <CartProvider>
       {cartIsShown && <Cart hideCartHandler = {hideCartHandler}/> }
       <Header showCartHandler = {showCartHandler}/>
       <main>
-        <Meals />
+        <Meals 
+          selectedRestaurant={selectedRestaurant}
+          onSelectRestaurant={selectRestaurantHandler}
+          onBackToRestaurants={backToRestaurantsHandler}
+        />
       </main>
     </CartProvider>
   );

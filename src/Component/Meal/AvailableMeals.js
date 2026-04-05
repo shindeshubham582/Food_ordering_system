@@ -5,6 +5,34 @@ import MealItem from "./MealItem/MealItem";
 
 
 
+// Sample meals data (Firebase database is restricted, using mock data)
+const SAMPLE_MEALS = [
+  {
+    id: '1',
+    name: 'Sushi',
+    description: 'Finest fish and veggies',
+    price: 22.99,
+  },
+  {
+    id: '2',
+    name: 'Schnitzel',
+    description: 'A german specialty!',
+    price: 16.5,
+  },
+  {
+    id: '3',
+    name: 'Barbecue Burger',
+    description: 'American, raw, meaty',
+    price: 12.99,
+  },
+  {
+    id: '4',
+    name: 'Green Bowl',
+    description: 'Healthy...and green...',
+    price: 18.99,
+  },
+];
+
 const AvailableMeals = () => {
   const [meals, setIsMeals] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -14,33 +42,17 @@ const AvailableMeals = () => {
     console.log('effect');
     async function fetchMeals() {
       setIsLoading(true)
-      const response = await fetch(
-        "https://react-http-a44c2-default-rtdb.firebaseio.com/meals.json"
-      );
-      if (!response.ok) {
-        throw new Error('something went wrong')
-      }
-      
-      const responseData = await response.json();
-
-      const mealsData = [];
-      for (const key in responseData) {
-        mealsData.push({
-          id: key,
-          name: responseData[key].name,
-          description: responseData[key].description,
-          price: responseData[key].price
-
-        });
-      }
-      setIsMeals(mealsData)
-      setIsLoading(false)
-    };
-      fetchMeals().catch(error => {
+      try {
+        // Using mock data since Firebase database has security restrictions
+        setIsMeals(SAMPLE_MEALS)
+        setIsLoading(false)
+      } catch (error) {
         setIsLoading(false);
         console.log(error);
         setHasError(error.message)
-      });
+      }
+    };
+      fetchMeals();
    
   }, []);
 
