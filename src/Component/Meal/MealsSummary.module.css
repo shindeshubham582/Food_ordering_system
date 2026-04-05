@@ -5,11 +5,12 @@
     margin: auto;
     margin-top: -10rem;
     position: relative;
-    background-color: #383838;
-    color: white;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
     border-radius: 14px;
     padding: 1rem;
-    box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 18px 10px var(--card-shadow);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .summary h2 {
