@@ -22,17 +22,21 @@ const Cart = (props) => {
 
   const onSubmitHandler = async (userData) => {
     setIsSubmitting(true);
-    await fetch(
-      "https://react-http-a44c2-default-rtdb.firebaseio.com/oderes.json",
-      {
-        method: "post",
-        body: JSON.stringify({
-          user: userData,
-          orderedItems: cartCtx.items,
-          totalPrice: cartCtx.totalAmount.toFixed(2),
-        }),
-      }
-    );
+    try {
+      await fetch(
+        "https://react-http-a44c2-default-rtdb.firebaseio.com/oderes.json",
+        {
+          method: "post",
+          body: JSON.stringify({
+            user: userData,
+            orderedItems: cartCtx.items,
+            totalPrice: cartCtx.totalAmount.toFixed(2),
+          }),
+        }
+      );
+    } catch (error) {
+      console.error('Order submission error:', error);
+    }
     setIsSubmitting(false);
     setDidSubmit(true);
     cartCtx.clearCart();
