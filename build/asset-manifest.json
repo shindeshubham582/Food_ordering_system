@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Food_ordering_system/static/css/main.d4ce6737.chunk.css",
-    "main.js": "/Food_ordering_system/static/js/main.db726199.chunk.js",
-    "main.js.map": "/Food_ordering_system/static/js/main.db726199.chunk.js.map",
+    "main.js": "/Food_ordering_system/static/js/main.c87b3bb8.chunk.js",
+    "main.js.map": "/Food_ordering_system/static/js/main.c87b3bb8.chunk.js.map",
     "runtime-main.js": "/Food_ordering_system/static/js/runtime-main.33ac6aa7.js",
     "runtime-main.js.map": "/Food_ordering_system/static/js/runtime-main.33ac6aa7.js.map",
     "static/js/2.2669816c.chunk.js": "/Food_ordering_system/static/js/2.2669816c.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.33ac6aa7.js",
     "static/js/2.2669816c.chunk.js",
     "static/css/main.d4ce6737.chunk.css",
-    "static/js/main.db726199.chunk.js"
+    "static/js/main.c87b3bb8.chunk.js"
   ]
 }
